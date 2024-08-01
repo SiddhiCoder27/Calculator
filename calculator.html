@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body >
+    <div class="container">
+    <div class="calculator">
+
+        <input type="text"  placeholder="0" id="outputScreen">
+        
+            <button class="button2" style="background-color:rgb(8, 233, 8)"  onclick="Clear()">Cl</button>
+            <button class="button2" style="background-color:rgb(8, 233, 8)" onclick="del()">DEL</button>
+            <button  class="button2" style="background-color:rgb(8, 233, 8)"onclick="display('%')">%</button>
+            <button  class="button2" style="background-color:rgb(8, 233, 8)" onclick="display('/')">/</button>
+            <button  class="button1" onclick="display('7')">7</button>
+            <button  class="button1"onclick="display('8')">8</button>
+            <button  class="button1" onclick="display('9')">9</button>
+            <button  class="button2" style="background-color:rgb(8, 233, 8)" onclick="display('*')">*</button>
+            <button class="button1"  onclick="display('4')">4</button>
+            <button class="button1" onclick="display('5')">5</button>
+            <button class="button1" onclick="display('6')">6</button>
+            <button class="button2" style="background-color:rgb(8, 233, 8)" onclick="display('-')">-</button>
+            <button  class="button1" onclick="display('1')">1</button>
+            <button class="button1" onclick="display('2')">2</button>
+            <button class="button1" onclick="display('3')">3</button>
+            <button class="button2"  style="background-color:rgb(8, 233, 8)"  onclick="display('+')">+</button>
+            <button class="button2" style="background-color:rgb(8, 233, 8)" onclick="display('.')">.</button>
+            <button class="button1" onclick="display('0')">0</button>
+            <button  class="button2" style="background-color:rgb(8, 233, 8)" onclick="Calculate()" id="equal" >=</button>
+            
+       
+    </div>
+</div>
+    <script>
+        let outputScreen = document.getElementById("outputScreen");
+    
+        function display(num) {
+            outputScreen.value += num;
+        }
+    
+        function Calculate() {
+            try {
+                outputScreen.value = eval(outputScreen.value);
+            } catch (err) {
+                alert("Invalid expression");
+            }
+        }
+    
+        function Clear() {
+            outputScreen.value = "";
+        }
+    
+        function del() {
+            outputScreen.value = outputScreen.value.slice(0, -1);
+        }
+    </script>
+</body>
+</html>
